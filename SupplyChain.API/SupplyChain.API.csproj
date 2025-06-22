@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SupplyChain.Application\SupplyChain.Application.csproj" />
     <ProjectReference Include="..\SupplyChain.Contracts\SupplyChain.Contracts.csproj" />
+    <ProjectReference Include="..\SupplyChain.Infrastructure\SupplyChain.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

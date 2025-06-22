@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SupplyChain.Domain\SupplyChain.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
