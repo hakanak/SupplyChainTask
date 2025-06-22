@@ -28,7 +28,7 @@ Sisteme yeni bir ürün ekler. Bu ürün, FakeStoreAPI'deki bir ürünle eşleş
 
 ```json
 {
-  "name": "Elma",
+  "name": "Mens Casual Premium Slim Fit T-Shirts",
   "initialStock": 25,
   "stockThreshold": 10
 }
@@ -40,7 +40,7 @@ Sisteme yeni bir ürün ekler. Bu ürün, FakeStoreAPI'deki bir ürünle eşleş
 {
   "id": 1,
   "productCode": "FS-1",
-  "name": "Elma",
+  "name": "Mens Casual Premium Slim Fit T-Shirts",
   "stockQuantity": 25,
   "stockThreshold": 10
 }
@@ -56,8 +56,8 @@ Stok miktarı, belirlenen eşik değerin altında olan tüm ürünleri listeler.
 [
   {
     "id": 3,
-    "productCode": "FS-3",
-    "name": "Avakado",
+    "productCode": "FS-1",
+    "name": "Mens Casual Premium Slim Fit T-Shirts",
     "stockQuantity": 25,
     "stockThreshold": 40
   }
@@ -75,8 +75,8 @@ Kritik stok seviyesindeki tüm ürünleri kontrol eder ve her biri için FakeSto
   "message": "Sipariş kontrolü tamamlandı.",
   "placedOrders": [
     {
-      "productName": "Avakado",
-      "productCode": "FS-3",
+      "productName": "Mens Casual Premium Slim Fit T-Shirts",
+      "productCode": "FS-1",
       "quantityOrdered": 15,
       "price": 22.3
     }
