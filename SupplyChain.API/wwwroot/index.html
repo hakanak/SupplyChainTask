@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stok Durumu</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ürün Stokları</h1>
+    <div id="products"></div>
+
+    <script>
+        
+        function convertToRoman(num) {
+           
+
+            // Roman rakamları için standart haritayı google dan buldum, bilmiyordum bu kadar çok olduğunu (:
+            const romanMap = [
+                { value: 1000, symbol: 'M' },
+                { value: 900, symbol: 'CM' },
+                { value: 500, symbol: 'D' },
+                { value: 400, symbol: 'CD' },
+                { value: 100, symbol: 'C' },
+                { value: 90, symbol: 'XC' },
+                { value: 50, symbol: 'L' },
+                { value: 40, symbol: 'XL' },
+                { value: 10, symbol: 'X' },
+                { value: 9, symbol: 'IX' },
+                { value: 5, symbol: 'V' },
+                { value: 4, symbol: 'IV' },
+                { value: 1, symbol: 'I' }
+            ];
+
+            let result = '';
+
+       
+            for (let item of romanMap) {
+                while (num >= item.value) {
+                    result += item.symbol;
+                    num    -= item.value;
+                }
+            }
+
+            return result;
+        }
+
+       
+        async function displayProducts() {
+           
+            const response = await fetch('/api/products/low-stock');
+            const products = await response.json();
+            const container = document.getElementById('products');
+
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                const stockInRoman = convertToRoman(product.stockQuantity);
+
+                productDiv.innerHTML = `
+                    <h3>${product.name} (${product.productCode})</h3>
+                    <p>Stok: <strong>${stockInRoman}</strong> adet</p>
+                `;
+                container.appendChild(productDiv);
+            });
+        }
+
+       
+        displayProducts(); 
+    </script>
+</body>
+</html>
